@@ -14,7 +14,10 @@ This repository contains the course materials for the EBP-Nor Genome annotation 
 ### 12:00-13:00 Lunch
 
 ### 13:00-14:00 
+* Introduction to comparative genomics
+* Setting up OrthoFinder
 
 ### 14:00-14:15 Break
 
 ### 14:15-16:00 
+* Running OrthoFinder on proteins and CDS
