@@ -3,5 +3,5 @@ When annotating a genome assembly, the first step is usually to mask the repeats
 
 The actual masking itself can be done either hard or soft. Hard masking would entail replacing the found repeats with either 'X' or 'N', thereby hiding the sequence itself and making it unavailable for alignments. The other is soft masking. Nucleotides in fasta files are usually in capital letters (ACTG) and with soft masking the nucleotides in repeats would be replaces with the same, but in lower case (actg). This makes it possible for different tools to avoid creating alignments in these repeats, but alignments can be extended into the repeats. Some tools, such as [miniprot](https://github.com/lh3/miniprot), ignores soft masking (that is, it has no effect on the program). 
 
-|[Previous](https://github.com/ebp-nor/genome-assembly-workshop-2022/blob/main/00_introduction.md)|[Next](https://github.com/ebp-nor/genome-assembly-workshop-2022/blob/main/02_Smudgeplot.md)|
+|[Previous]((https://github.com/ebp-nor/genome_annotation_comparative_genomics_part1/blob/main/00_introduction.md)|[Next](https://github.com/ebp-nor/genome_annotation_comparative_genomics_part1/blob/main/00_introduction.md)|
 |---|---|
