@@ -34,3 +34,6 @@ module list
 ## Do some work:
 YourCommands
 ```
+
+|[Next](https://github.com/ebp-nor/genome-assembly-workshop-2022/blob/main/01_GenomeScope2.md)|
+|---|
