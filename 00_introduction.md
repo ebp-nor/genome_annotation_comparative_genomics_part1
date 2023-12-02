@@ -1,3 +1,18 @@
+## Study organism
+For the genome annotation exercise we will use [_Umbelopsis ramanniana_](https://en.wikipedia.org/wiki/Umbelopsis_ramanniana), a fungi common in soil. It is one of the species we are working on in the EBP-Nor project, and has a small genome which is really nice for our purposes here (everything is quicker). We will use this and other related species of comparative genomics later. 
+
+## Package management
+
+Administrating the different programs that are needed in project can be a hassle. We like conda, especially [miniconda](https://docs.conda.io/en/latest/miniconda.html), and have set up different environments we will use for the different analyses. [Bioconda](https://bioconda.github.io) contain a lot of different packages that are relevant for us, and genomics and bioinformatics in general.
+
+To load conda, do this:
+```
+eval "$(/fp/projects01/ec146/miniconda3/bin/conda shell.bash hook)" 
+```
+
+There are some of the different programs that are not available through conda. For most of these we use [Singularity containers](https://docs.sylabs.io/guides/3.5/user-guide/introduction.html). 
+
+We mostly set up scripts and arranged data so it is ready to run, but ask you to modify them in some cases. We have backups of everything, but please be careful so you don't delete something you shouldn't.
 
 ## Infrastructure
 
