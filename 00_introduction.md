@@ -35,5 +35,5 @@ module list
 YourCommands
 ```
 
-|[Next](https://github.com/ebp-nor/genome-assembly-workshop-2022/blob/main/01_GenomeScope2.md)|
+|[Next](https://github.com/ebp-nor/genome_annotation_comparative_genomics_part1/blob/main/01_repeatmasking.md)|
 |---|
