@@ -31,6 +31,14 @@ agat_sp_extract_sequences.pl --gff galba.gtf -f $1  -t cds -p -o galba.proteins.
 ```
 Here we use a [Singularity container](https://docs.sylabs.io/guides/3.5/user-guide/introduction.html), because sometimes it can be a hassle to set up everything properly even with Conda. 
 
+You can start this with this `run.sh` script:
+```
+cp -rf /projects/ec146/data/GCF_025201355.1_Halrad1_protein.faa  .
+cp -rf ../softmask/gzUmbRama1.softmasked.fa .
+
+sbatch /projects/ec146/scripts/annotation/run_galba.sh gzUmbRama1.softmasked.fa gzUmbRama1 GCF_025201355.1_Halrad1_protein.faa
+```
+
 Why do we copy both the genome assembly and the protein sequences to the current folder?
 
-When we ran this, it took about 50 minutes.
+When we ran this, it took about 50 minutes. This job can be started at the same time as the miniprot jobs, but have to be run after the softmasking.
