@@ -35,4 +35,6 @@ sbatch /projects/ec146/scripts/annotation/run_miniprot_model.sh gzUmbRama1.conti
 ```
 This `run.sh` script also starts the other miniprot job. If you look at the script itself, you'll see in addition to miniprot two other programs, `agat_sp_extract_sequences.pl` and `miniprot_GFF_2_EVM_GFF3.py`.  `agat_sp_extract_sequences.pl` is from [AGAT](https://github.com/NBISweden/AGAT) (short for Another Gtf/Gff Analysis Toolkit). It is a really useful set of tools if you need to convert between different formats, create the predicted proteins from the annotation/alignments (as used here) or for adding functional annotation information to the annotation (shown later). `miniprot_GFF_2_EVM_GFF3.py` is an utility that is provided together with EvidenceModeler to convert the output of miniprot into something EvindenceModeler understands (but not found in the current release yet).   
 
+You should investigate what the different options to the different programs mean. Usually you will get this information by running the program without any options, or by the option -h. Some options might not be relevant for your proposes, or we might have gotten something wrong, so it is always good to check.
+
 The alignment of UniProtKB/Swiss-Prot proteins took around 50 minutes when we ran it, but alignment of the related fungus proteins only took a couple of minutes. 
