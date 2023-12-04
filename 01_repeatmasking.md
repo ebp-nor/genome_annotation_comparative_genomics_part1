@@ -43,5 +43,7 @@ sbatch /projects/ec146/scripts/annotation/run_red.sh gzUmbRama1.contigs.fasta gz
 
 If you then type `sh run.sh` you will submit this job to the cluster.
 
+This should finish in a handful of minutes (when testing it ran for 0.5 minutes). You can monitor the progress with `squeue -u <username>`.
+
 |[Previous](https://github.com/ebp-nor/genome_annotation_comparative_genomics_part1/blob/main/00_introduction.md)|[Next](https://github.com/ebp-nor/genome_annotation_comparative_genomics_part1/blob/main/00_introduction.md)|
 |---|---|
