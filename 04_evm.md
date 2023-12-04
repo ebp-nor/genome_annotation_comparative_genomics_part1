@@ -1,0 +1,4 @@
+## EvidenceModeler
+
+If everything so far has gone well, we have three different annotations/files with gene models. One from GALBA, and two from miniprot alignments. We have tried to make this tutorial small but relevant, however, if you were to annotate a genome assembly "properly", you might have run additional _ab initio_ gene predictors and/or aligned more protein data and/or some kind of transcriptome evindence such as RNA-seq or IsoSeq. With that many files/annotations, it can be hard to know what to do. You could of course pick one based on some kind of criteria (maybe number of complete BUSCO genes). Some tools, such as BRAKER, are usually meant to provide the final gene set. However, in this case, we want to combine the different annotations/files we have into one, non-redudant, gene set. We will do this with   [EvidenceModeler](https://github.com/EVidenceModeler/EVidenceModeler) ([Haas et al (2008)](https://pubmed.ncbi.nlm.nih.gov/18190707/).
+
