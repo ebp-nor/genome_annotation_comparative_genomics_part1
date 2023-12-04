@@ -7,7 +7,41 @@ People often use [RepeatMasker](https://www.repeatmasker.org/) when masking repe
 
 If you do go that route, we would recommend using a [container](https://github.com/Dfam-consortium/TETools). RepeatMasker can use quite a lot of resources when running. It will try to characterise the repeats it finds (into different classes of transposable elements for instance), but this is not needed for annotating the genes of a species. It is, however, essential if you are interested in different transposable elements and where they are. Here, we settle for a program that uses a lot less resources, namely Red ([Giris 2015](https://doi.org/10.1186/s12859-015-0654-5)). Red and an associated Python script [redmask.py](https://github.com/nextgenusfs/redmask) as been set up on Fox using conda and downloading the redmask GitHub repository.  
 
+To facilitate error management and to have a system we would like you to create a folder at 
+```
+/projects/ec146/work
+```
+with you username for instance. You can do this by 
+```
+mkdir -p /projects/ec146/work/$USER
+```
 
+Please navigate to this location (`cd /projects/ec146/work/$USER`) and create a subfolder called 'annotation' and enter that. This will be our working area for now. 
+
+Create a subfolder called 'softmask', and enter it. 
+
+To run Red, you can use a script like this:
+```
+#!/bin/bash
+#SBATCH --job-name=red
+#SBATCH --account=ec146
+#SBATCH --time=1:0:0
+#SBATCH --mem-per-cpu=10G
+#SBATCH --ntasks-per-node=1
+
+eval "$(/fp/projects01/ec146/miniconda3/bin/conda shell.bash hook)"
+
+conda activate anno_pipeline
+
+python /projects/ec146/opt/redmask/redmask.py -i ${1} -o ${2}
+```
+We have set this script up for you, so you can create a `run.sh` in you current folder (`/projects/ec146/work/$USER/annotation/softmask` presumably) with this content (with `nano` for instance):
+```
+ln -s /projects/ec146/data/gzUmbRama1.contigs.fasta .
+sbatch /projects/ec146/scripts/annotation/run_red.sh gzUmbRama1.contigs.fasta gzUmbRama1
+```
+
+If you then type `sh run.sh` you will submit this job to the cluster.
 
 |[Previous](https://github.com/ebp-nor/genome_annotation_comparative_genomics_part1/blob/main/00_introduction.md)|[Next](https://github.com/ebp-nor/genome_annotation_comparative_genomics_part1/blob/main/00_introduction.md)|
 |---|---|
