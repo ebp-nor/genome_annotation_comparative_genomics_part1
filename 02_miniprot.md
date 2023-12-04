@@ -5,7 +5,7 @@ Here, we will align UniProtKB/Swiss-Prot in additon to proteins from a related f
   
 We suggest that you create a subfolder called `miniprot` at `/projects/ec146/work/$USER/annotation`. Enter the new folder. We have created two scripts to run miniprot, one for UniProtKB/Swiss-Prot and one for the related fungus. 
 
-This is one the first one looks: 
+This is how the first one looks: 
 ```
 #!/bin/bash
 #SBATCH --job-name=miniprot
@@ -37,4 +37,4 @@ This `run.sh` script also starts the other miniprot job. If you look at the scri
 
 You should investigate what the different options to the different programs mean. Usually you will get this information by running the program without any options, or by the option -h. Some options might not be relevant for your proposes, or we might have gotten something wrong, so it is always good to check.
 
-The alignment of UniProtKB/Swiss-Prot proteins took around 50 minutes when we ran it, but alignment of the related fungus proteins only took a couple of minutes. 
+The alignment of UniProtKB/Swiss-Prot proteins took around 50 minutes when we ran it, but alignment of the related fungus proteins only took a couple of minutes. These jobs can be started independently of the softmasking.
