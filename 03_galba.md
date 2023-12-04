@@ -5,8 +5,32 @@ The developers of AUGUSTUS have through the years developed different programs t
 
 Here, we will use GALBA on the proteins from a related fungus to generate a set up _ab initio_ predicted genes.
 
+You can run GALBA with a script similar to this: 
+```
+#!/bin/bash
+#SBATCH --job-name=galba
+#SBATCH --account=ec146
+#SBATCH --time=1:0:0
+#SBATCH --mem-per-cpu=1G
+#SBATCH --ntasks-per-node=10
 
+eval "$(/fp/projects01/ec146/miniconda3/bin/conda shell.bash hook)"
 
+conda activate anno_pipeline
+
+singularity exec -B $PWD:/data /projects/ec146/opt/galba/galba.sif cp -rf /usr/share/augustus/config /data/
+singularity exec -B $PWD:/data /projects/ec146/opt/galba/galba.sif galba.pl --version > galba.version
+singularity exec -B $PWD:/data /projects/ec146/opt/galba/galba.sif galba.pl --species=$2 --threads=10 \
+--genome=/data/$1 \
+--verbosity=4 --prot_seq=/data/$3  --workingdir=/data \
+--augustus_args="--stopCodonExcludedFromCDS=False" --gff3 \
+--AUGUSTUS_CONFIG_PATH=/data/config \
+1> galba_"`date +\%y\%m\%d_\%H\%M\%S`".out 2> galba_"`date +\%y\%m\%d_\%H\%M\%S`".err
+
+agat_sp_extract_sequences.pl --gff galba.gtf -f $1  -t cds -p -o galba.proteins.fa
+```
+Here we use a [Singularity container](https://docs.sylabs.io/guides/3.5/user-guide/introduction.html), because sometimes it can be a hassle to set up everything properly even with Conda. 
 
 Why do we copy both the genome assembly and the protein sequences to the current folder?
 
+When we ran this, it took about 50 minutes.
