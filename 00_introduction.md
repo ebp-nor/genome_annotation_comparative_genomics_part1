@@ -1,4 +1,4 @@
-## Study organism
+## The study organism
 For the genome annotation exercise we will use [_Umbelopsis ramanniana_](https://en.wikipedia.org/wiki/Umbelopsis_ramanniana), a fungi common in soil. It is one of the species we are working on in the EBP-Nor project, and has a small genome which is really nice for our purposes here (everything is quicker). We will use this and other related species for comparative genomics later. 
 
 ## Package management
