@@ -35,4 +35,44 @@ sbatch /projects/ec146/scripts/annotation/run_uniprot.sh ../filter/filtered.prot
 ```
 Please put that command into a `run.sh` script as usual to keep track of what has been done.
 
+The next script creates a new GFF where the gene names have been added:
+
+```
+#!/bin/bash
+#SBATCH --job-name=functional
+#SBATCH --account=ec146
+#SBATCH --time=1:0:0
+#SBATCH --mem-per-cpu=1G
+#SBATCH --ntasks-per-node=5
+
+eval "$(/fp/projects01/ec146/miniconda3/bin/conda shell.bash hook)" 
+
+conda activate anno_pipeline
+
+MIN_AA_SIZE=50
+
+agat_sp_manage_functional_annotation.pl --gff $1  -b $2 \
+--ID FUNC \
+-o fun \
+-db /projects/ec146/data/funannotate_db/uniprot_sprot.fasta \
+1> manage_functional_annotation.out 2> manage_functional_annotation.err
+
+agat_sp_statistics.pl --gff fun/filtered_genes_sup${MIN_AA_SIZE}.gff -o gff_stats 1> gff_stats.out 2> gff_stats.err
+
+cp fun/filtered_genes_sup${MIN_AA_SIZE}.gff $3.gff 
+
+agat_sp_extract_sequences.pl --gff $3.gff -f $4 -t cds -p -o $3.proteins.fa 1> agat_proteins_"`date +\%y\%m\%d_\%H\%M\%S`".out 2> agat_proteins_"`date +\%y\%m\%d_\%H\%M\%S`".err
+agat_sp_extract_sequences.pl --gff $3.gff -f $4 -t exon --merge -o $3.mrna.fa 1> agat_mrna_"`date +\%y\%m\%d_\%H\%M\%S`".out 2> agat_mrna_"`date +\%y\%m\%d_\%H\%M\%S`".err
+```
+
+You can run this as
+```
+sbatch /projects/ec146/scripts/annotation/run_functional.sh \
+../filter/filtered_genes_sup50.gff  \
+../filter/filtered.proteins.fa \
+awesome_fun_guy \
+../softmask/gzUmbRama1.softmasked.fa
+```
+
+Congratulations! You have now both structurally and functionally annotated a genome.
 
