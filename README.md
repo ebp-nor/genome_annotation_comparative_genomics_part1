@@ -23,7 +23,7 @@ This repository contains the course materials for the workshop Genome annotation
 
 ### 13:00-14:00 
 * Introduction to comparative genomics
-* Setting up OrthoFinder
+* [Setting up OrthoFinder](orthofinder.md)
 
 ### 14:00-14:15 Break
 
