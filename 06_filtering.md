@@ -1,0 +1,4 @@
+## Filtering based on protein lenght and similarity to repeat proteins
+
+After EvidenceModeler we have a set of genes that is the consensus of the input. However, while we ran [GALBA](03_galba.md) on the softmasked genome assembly, we mapped all of [UniProtKB/Swiss-prot](02_miniprot.md) against the unmasked genome assembly. UniProtKB/Swiss-prot contain all kinds of known proteins, also proteins that are found in transposable elements which we don't want to annotate here. And while softmasking with Red would find all (or most at least) repetitive parts of the genome, there might be transposable elements that only occur once and which might therefore not be masked. To address this, we compare all predicted proteins against a set of repeat proteins that are available through Funannotate. Further, we might have several short proteins that might not be real, so we will apply a filter on length also.
+
