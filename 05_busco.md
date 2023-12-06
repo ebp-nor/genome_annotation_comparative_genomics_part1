@@ -1,3 +1,31 @@
 ## BUSCO
 
-If everything so far has gone well, we have three different annotations/files with gene models. One from GALBA, and two from miniprot alignments. We have tried to make this tutorial small but relevant, however, if you were to annotate a genome assembly "properly", you might have run additional _ab initio_ gene predictors and/or aligned more protein data and/or some kind of transcriptome evindence such as RNA-seq or IsoSeq. With that many files/annotations, it can be hard to know what to do. You could of course pick one based on some kind of criteria (maybe number of complete BUSCO genes). Some tools, such as BRAKER, are usually meant to provide the final gene set. However, in this case, we want to combine the different annotations/files we have into one, non-redudant, gene set. We will do this with   [EvidenceModeler](https://github.com/EVidenceModeler/EVidenceModeler) ([Haas et al (2008)](https://pubmed.ncbi.nlm.nih.gov/18190707/).
+By now, you have created several GFF files with different content, and even merged several of these together with [EvidenceModeler](04_evm.md). However, it can be non-trivial to actually assess what you got from this. For a genome assembly you can look at [length metrics](https://github.com/ebp-nor/genome-assembly-workshop-2023/blob/main/06_gfastats.md) and [BUSCO scores](https://github.com/ebp-nor/genome-assembly-workshop-2023/blob/main/07_BUSCO.md). You usually know how large genome assembly you expect, and you know that having more complete BUSCO genes is better. However, we don't necessary know many genes we expect a species to have, and how long these are. We don't even know it properly for human where two different annotated sets of genes for a human reference genome contain [20,054 and 19,817 protein coding genes](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-018-1590-2). Looking at the statistics of the annotated genes might not be informative, besides having a ballpark number of genes you expect the species to have. However, we can at least look at the amount of complete [BUSCO genes](https://busco.ezlab.org/) compared to a reference database. BUSCO ([Manni et al (2021)](https://currentprotocols.onlinelibrary.wiley.com/doi/full/10.1002/cpz1.323) is used extensively for this purpose, although it might be more used to assess a genome assembly as linked to above. 
+
+Here we will set up a script you can run on the different `*.proteins.fa` files that has been created in the different folders so far. We have set up two reference databases, fungi for genes that are expected to be found in all fungi, and mucoromycota for more clade-specific genes. We have set up this script:
+```
+#!/bin/bash
+#SBATCH --job-name=busco
+#SBATCH --account=ec146
+#SBATCH --time=1:0:0
+#SBATCH --mem-per-cpu=1G
+#SBATCH --ntasks-per-node=5
+
+eval "$(/fp/projects01/ec146/miniconda3/bin/conda shell.bash hook)" 
+
+conda activate busco
+
+prefix=${1%.*}
+
+mkdir -p busco5_${2}_${prefix}
+origdir=$PWD
+
+cd busco5_${2}_${prefix}
+
+busco -c 10 -i ${origdir}/${1} -l /projects/ec146/opt/busco/lineages/${2}_odb10 \
+-o assembly -m proteins --offline > busco.out 2> busco.err
+```
+
+As you see, there are two parameters here, the first is the set of proteins you want to compare against the database, and the second in the lineage (fungi or mucoromycota in this case). 
+
+We leave writing a `run_busco.sh` file as an exercise for you. You should run both lineages on at least two of the predicted protein sets. 
