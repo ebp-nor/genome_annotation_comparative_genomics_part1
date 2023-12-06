@@ -6,7 +6,7 @@
 ![image](https://user-images.githubusercontent.com/46928237/191227132-3227f638-abd4-4804-9b91-fbc080c905d9.png)
 
 
-## What are orthologs? paralogs? homologs? 
+## What are orthologs? Paralogs? Homologs? 
 Homology is similarity due to shared ancestry between a pair of structures or genes in different taxa. If two genes share ancestry following a speciation event, they are known as orthologs. If two genes trace their ancestry back to a gene duplication event, they are known as paralogs.
 
 ![image](https://user-images.githubusercontent.com/46928237/193239122-33223055-afc8-4f47-91a1-3d341e18535f.png)
@@ -37,12 +37,11 @@ Discuss different options...
 #!/bin/bash
 
 #SBATCH --job-name=orthofinder
-#SBATCH --account=nn9986k
+#SBATCH --account=ec146
 #SBATCH --time=4:0:0 ## increase if the job doesn't finish
 #SBATCH --mem-per-cpu=4500M
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=15 ## increase if the job doesn't finish
-
 
 source /cluster/projects/nn9986k/miniconda3/etc/profile.d/conda.sh
 
