@@ -43,9 +43,7 @@ Discuss different options...
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=15 ## increase if the job doesn't finish
 
-source /cluster/projects/nn9986k/miniconda3/etc/profile.d/conda.sh
-
-eval "$(conda shell.bash hook)"
+eval "$(/fp/projects01/ec146/miniconda3/bin/conda shell.bash hook)"
 
 conda activate orthofinder
 
