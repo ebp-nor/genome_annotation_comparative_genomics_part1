@@ -6,9 +6,17 @@ This repository contains the course materials for the workshop Genome annotation
 
 ### 09:00-12:00 Genome annotation
 
-* 09:00-09:30 Introduction to genome annotation and [introduction to the study system and infrastructure](00_introduction.md)
-* 09:30-11:55
-
+* 09:00-09:30 [Introduction to the study system and infrastructure](00_introduction.md)
+  * Making sure you have access to Fox
+  * Submit the first set of jobs
+    * [Repeat mask](01_repeatmasking.md)
+    * [Mapping protein sets](02_miniprot.md)
+    * [_Ab initio_ gene prediction](03_galba.md)
+* 09:30-11:55 [Introduction to genome annotation](https://docs.google.com/presentation/d/1yNid3oZclwh_xyFDLDS82N8CcwL_VJe5lr0TDk7BAUE/edit?usp=sharing)
+  * Work through the rest of the programs
+    * [EvidenceModeler](04_evm.md)
+    * [BUSCO](05_busco.md)
+    * [Functional annotation](06_functional.md) 
 * 11:55-12:00 Summary
 
 ### 12:00-13:00 Lunch
