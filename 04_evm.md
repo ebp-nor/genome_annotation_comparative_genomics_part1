@@ -57,6 +57,6 @@ gzUmbRama1.softmasked.fa \
 
 Submit the job.
 
-
+This ran for 40 minutes when testing.
 
 
