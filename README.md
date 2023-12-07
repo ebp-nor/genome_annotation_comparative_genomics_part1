@@ -16,7 +16,7 @@ This workshop is sponsored by EBP-Nor in addition to the sponsors for the Oslo B
     * [Repeat mask](01_repeatmasking.md)
     * [Mapping protein sets](02_miniprot.md)
     * [_Ab initio_ gene prediction](03_galba.md)
-* 09:30-11:55 [Introduction to genome annotation](https://docs.google.com/presentation/d/1yNid3oZclwh_xyFDLDS82N8CcwL_VJe5lr0TDk7BAUE/edit?usp=sharing)
+* 09:30-11:55 [Introduction to genome annotation]()
   * Work through the rest of the programs
     * [EvidenceModeler](04_evm.md)
     * [BUSCO](05_busco.md)
