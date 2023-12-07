@@ -76,3 +76,7 @@ awesome_fun_guy \
 
 Congratulations! You have now both structurally and functionally annotated a genome.
 
+|[Previous](https://github.com/ebp-nor/genome_annotation_comparative_genomics_part1/blob/main/06_filtering.md)|[Next](https://github.com/ebp-nor/genome_annotation_comparative_genomics_part1/blob/main/orthofinder.md)|
+|---|---|
+
+
