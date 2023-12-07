@@ -39,3 +39,6 @@ sbatch /projects/ec146/scripts/annotation/run_filter.sh \
 ```
 
 This should only take a minute or so.
+
+|[Previous](https://github.com/ebp-nor/genome_annotation_comparative_genomics_part1/blob/main/05_busco.md)|[Next](https://github.com/ebp-nor/genome_annotation_comparative_genomics_part1/blob/main/07_functional.md)|
+|---|---|
