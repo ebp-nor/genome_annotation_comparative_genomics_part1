@@ -11,7 +11,7 @@ To facilitate error management and to have a system we would like you to create 
 ```
 /projects/ec146/work
 ```
-with you username for instance. You can do this by 
+with your username for instance. You can do this by 
 ```
 mkdir -p /projects/ec146/work/$USER
 ```
