@@ -38,3 +38,7 @@ This `run.sh` script also starts the other miniprot job. If you look at the scri
 You should investigate what the different options to the different programs mean. Usually you will get this information by running the program without any options, or by the option -h. Some options might not be relevant for your proposes, or we might have gotten something wrong, so it is always good to check.
 
 The alignment of UniProtKB/Swiss-Prot proteins took around 50 minutes when we ran it, but alignment of the related fungus proteins only took a couple of minutes. These jobs can be started independently of the softmasking.
+
+|[Previous](https://github.com/ebp-nor/genome_annotation_comparative_genomics_part1/blob/main/01_repeatmasking.md)|[Next](https://github.com/ebp-nor/genome_annotation_comparative_genomics_part1/blob/main/03_galba.md)|
+|---|---|
+
