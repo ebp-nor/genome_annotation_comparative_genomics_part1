@@ -57,6 +57,10 @@ gzUmbRama1.softmasked.fa \
 
 Submit the job.
 
+|[Previous](https://github.com/ebp-nor/genome_annotation_comparative_genomics_part1/blob/main/03_galba.md)|[Next](https://github.com/ebp-nor/genome_annotation_comparative_genomics_part1/blob/main/05_busco.md)|
+|---|---|
+
+
 This ran for 40 minutes when testing.
 
 
