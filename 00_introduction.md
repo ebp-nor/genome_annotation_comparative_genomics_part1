@@ -1,6 +1,9 @@
 ## The study organism
 For the genome annotation exercise we will use [_Umbelopsis ramanniana_](https://en.wikipedia.org/wiki/Umbelopsis_ramanniana), a fungi common in soil. It is one of the species we are working on in the EBP-Nor project, and has a small genome which is really nice for our purposes here (everything is quicker). We will use this and other related species for comparative genomics later. 
 
+## How to use this material
+We have tried to write the first part of this workshop so you can work through it independently of other resources. The explanations hopefully succinct, but contains links to other resources where you can learn more. This is to both papers and websites. You do not have to read through these, but they are meant as resources, something you can refer back to if you want more information and to learn more. Please read both the text and the scripts carefully, and make sure to try to run the programs without any parameters to look at the information the programs output regarding different parameters. Please don't hesitate to ask questions. 
+
 ## Package management
 
 Administrating the different programs that are needed in project can be a hassle. We like conda, especially [miniconda](https://docs.conda.io/en/latest/miniconda.html), and have set up different environments we will use for the different analyses. [Bioconda](https://bioconda.github.io) contain a lot of different packages that are relevant for us, and genomics and bioinformatics in general.
