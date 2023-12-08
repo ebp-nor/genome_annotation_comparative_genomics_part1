@@ -21,14 +21,60 @@ They show you how to manually downliad data from different databases. To do this
 
 # Getting the input data for Orthofinder
 
-We will use our own data to run Orthofinder. All you need is a fasta file of all the protein sequences for each species. It is also good to have an outgroup species for your analsys. We have chosen to use Aspergillus.... 
+We will use our own data to run Orthofinder. All you need is a fasta file of all the protein sequences for each species. It is also good to have an outgroup species for your analsys. We have chosen to use Aspergillus.
+
+Create a folder at your work directory:
+```
+cd /projects/ec146/work/$USER
+mkdir -p orthofinder
+cd orthofinder
+```
 
 # Setting up a conda environment
+To set up the conda environment, we did this:
+```
+eval "$(/fp/projects01/ec146/miniconda3/bin/conda shell.bash hook)"
+conda create -n orthofinder orthofinder
+```
+You do not have to do this yourself (please don't, you might mess up something).
 
 
 # Filtering the data
 
-# Running Orthofinder
+
+
+# Running OrthoFinder
+
+We will first run OrthoFinder on the protein sequences. Create a subfolder called proteins and navigate to it. 
+
+To get the data, copy them like this:
+```
+rsync -ravz /projects/ec146/data/proteomes .
+```
+Then you can submit a job like this:
+```
+sbatch /projects/ec146/scripts/orthofinder/run_orthofinder_proteins.sh
+```
+
+We might as well submit the job for running OrthoFinder on CDS. Create a folder called `cds` at the same level as the `proteins` one and get the data:
+```
+rsync -ravz /projects/ec146/data/cds .
+```
+Then you can submit a job like this:
+```
+sbatch /projects/ec146/scripts/orthofinder/run_orthofinder_cds.sh
+```
+
+If you look at the SLURM scripts, you'll see that we have specified running `muscle` and `iqtree` (`-M msa -A muscle -T iqtree`). By default, OrthoFinder calls `musle` like this:
+```
+muscle -in INPUT -out OUTPUT
+```
+However, the version of `muscle` we have installed (5.1) requires 
+```
+muscle -align INPUT -output OUTPUT
+```
+
+Luckily, this is easy to change. We just modified this file to the correct command: `/fp/projects01/ec146/miniconda3/envs/orthofinder/bin/scripts_of/config.json`. If you run into similar issues when doing this yourself, be aware that it might be easily addressed.
 
 Discuss different options... 
 
