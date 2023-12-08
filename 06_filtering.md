@@ -1,8 +1,9 @@
 ## Filtering based on protein lenght and similarity to repeat proteins
 
-After EvidenceModeler we have a set of genes that is the consensus of the input. However, while we ran [GALBA](03_galba.md) on the softmasked genome assembly, we mapped all of [UniProtKB/Swiss-prot](02_miniprot.md) against the unmasked genome assembly. UniProtKB/Swiss-prot contain all kinds of known proteins, also proteins that are found in transposable elements which we don't want to annotate here. And while softmasking with Red would find all (or most at least) repetitive parts of the genome, there might be transposable elements that only occur once and which might therefore not be masked. To address this, we compare all predicted proteins against a set of repeat proteins that are available through Funannotate. Further, we might have several short proteins that might not be real, so we will apply a filter on length also.
+EvidenceModeler creates a set of genes that is the consensus of the input sets of genes we provided it. However, as mentioned before, [GALBA](03_galba.md) does not take into account masking in a softmasked genome assembly. Since we mapped all of [UniProtKB/Swiss-prot](02_miniprot.md) against genome, and UniProtKB/Swiss-prot contain all kinds of known proteins including proteins that are found in transposable elements, we likely picked up some genes we don't want to annotate here. Additionally, softmasking with Red should find all (or most at least) repetitive parts of the genome, but there might be transposable elements that only occur once and might therefore not be masked. To address this, we compare all predicted proteins against a set of repeat proteins that are available through the Funannotate pipeline. Furthermore, we might have predicted several short proteins that are possibly not valid proteins, so we will apply a filter on protein length also.
 
 All this can be done with this script:
+
 ´´´
 #!/bin/bash
 #SBATCH --job-name=filter
