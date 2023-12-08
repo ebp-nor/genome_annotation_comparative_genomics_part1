@@ -1,8 +1,8 @@
 ## Functional annotation
 
-After filtering the EvidenceModeler genes we have a set of genes we (hopefully) trust, and which are (hopefully) correct. However, we don't actually know what each gene does, nor what it is named. Not all genes have a known function, nor name, but we have some tools that can help on this situation. Proteins usually contain domains that can be informative with regards to their function. [InterProScan](https://github.com/ebi-pf-team/interproscan) ([Jones et al (2014)](https://academic.oup.com/bioinformatics/article/30/9/1236/237988)) is a tool that annotates known domains in proteins by comparisons to several different databases, such as PFAM and Panther among many others. 
+After filtering the EvidenceModeler genes we have a set of genes we (hopefully) trust, and which are (hopefully) correct. However, we don't actually know what each gene does, nor what it is named. Not all genes have a known function, nor name, but we have some tools that can help us with this situation. Proteins usually contain domains that can be informative with regards to their function. [InterProScan](https://github.com/ebi-pf-team/interproscan) ([Jones et al (2014)](https://academic.oup.com/bioinformatics/article/30/9/1236/237988)) is a tool that annotates known domains in proteins by comparisons to several different databases, such as PFAM and Panther.
 
-In addition to annotating domains, it is useful to attach gene names to the proteins. This can be done by a simple comparison using [DIAMOND](https://github.com/bbuchfink/diamond), similar to what we did for [filtering](06_filtering.md). 
+In addition to annotating domains, it is useful to attach gene names to the proteins. This can be done by a simple comparison to known genes with known names using [DIAMOND](https://github.com/bbuchfink/diamond), similar to what we did for [filtering](06_filtering.md). 
 
 Comparisons against UniProtKB/Swiss-prot can be done with this script:
 ```
@@ -78,7 +78,7 @@ Congratulations! You have now both structurally and functionally annotated a gen
 
 How many genes did you get? How many complete BUSCO genes?
 
-The file `/projects/ec146/data/proteomes/gzUmbIsab1.proteins.fa` the the result of another annotation effort. How many genes are found in that file? How many complete BUSCO genes? What might the difference be due?
+The file `/projects/ec146/data/proteomes/gzUmbIsab1.proteins.fa` is the result of another annotation effort. How many genes are found in that file? How many complete BUSCO genes? What might the difference be attributed to?
 
 |[Previous](https://github.com/ebp-nor/genome_annotation_comparative_genomics_part1/blob/main/06_filtering.md)|[Next](https://github.com/ebp-nor/genome_annotation_comparative_genomics_part1/blob/main/orthofinder.md)|
 |---|---|
