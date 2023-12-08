@@ -1,8 +1,10 @@
 ## EvidenceModeler
 
-If everything so far has gone well, we have three different annotations/files with gene models. One from GALBA, and two from miniprot alignments. We have tried to make this tutorial small but relevant, however, if you were to annotate a genome assembly "properly", you might have run additional _ab initio_ gene predictors and/or aligned more protein data and/or some kind of transcriptome evindence such as RNA-seq or IsoSeq. With that many files/annotations, it can be hard to know what to do. You could of course pick one based on some kind of criteria (maybe number of complete BUSCO genes). Some tools, such as BRAKER, are usually meant to provide the final gene set. However, in this case, we want to combine the different annotations/files we have into one, non-redudant, gene set. We will do this with [EvidenceModeler](https://github.com/EVidenceModeler/EVidenceModeler) ([Haas et al (2008)](https://pubmed.ncbi.nlm.nih.gov/18190707/)).
+If everything so far has gone well, you should have three different annotations/files with gene models. One from GALBA, and two from the miniprot alignments. This is as much as we can do in a workshop like this, but remember that if you were to "properly" annotate your own genome assembly, additional _ab initio_ gene predictions and/or more aligned protein data and/or some kind of transcriptome evindence such as RNA-seq or IsoSeq are higly recommended. 
 
-We have installed [Funannotate](https://github.com/nextgenusfs/funannotate), a genome annotation pipeline, on Fox for this workshop. It is a nice pipeline, but for you to get a better understanding of what actually happens when annotating a genome, we do this workshop by running different programs independently. If you are looking for something more comprehensive you should take a look at Funannotate. Anyhow, it has a some features that we take directly advantage of here, namely a script that runs EvidenceModeler for us. This can be run like so:
+With that many files/annotations, it can be hard to know what to do. You could of course pick one based on some kind of criteria (maybe number of complete BUSCO genes). Some tools, such as BRAKER1/2/3, are usually meant to provide the final gene set. However, in our case we want to combine the different annotations/files we created into one, non-redudant, gene set. We will do this using [EvidenceModeler](https://github.com/EVidenceModeler/EVidenceModeler) ([Haas et al (2008)](https://pubmed.ncbi.nlm.nih.gov/18190707/)).
+
+We have installed [Funannotate](https://github.com/nextgenusfs/funannotate), an all-in-one genome annotation pipeline, on Fox for this workshop. It is a nice pipeline, but for you to get a better understanding of what actually happens when annotating a genome, we do this workshop by running different programs independently. If you are looking for something more comprehensive you should take a look at Funannotate. In any case, it has a some features that we will take direct advantage of here, namely a script that runs EvidenceModeler for us. This can be run like so:
 
 ```
 #!/bin/bash
@@ -44,7 +46,7 @@ agat_sp_extract_sequences.pl --gff evm.gff3 -f $1 -t cds -p -o evm.proteins.fa 1
 agat_sp_extract_sequences.pl --gff evm.gff3 -f $1 -t exon --merge -o evm.mrna.fa 1> agat_exons_"`date +\%y\%m\%d_\%H\%M\%S`".out 2> agat_exons_"`date +\%y\%m\%d_\%H\%M\%S`".err
 ```
 
-There are several things going on here. The first is running augustus_GTF_to_EVM_GFF3.pl on the GALBA output to create a GFF that EvidenceModeler accepts. Then we concatenate the resulting file together with the two files from [miniprot](02_miniprot.md). weights.evm.txt is created to contain two lines that determines how much weight EvidenceModeler should put on the _ab initio_ gene predictions versus the protein alignments, before the script itself is called. You should try to get an impression of what the different options are meant for here. In the end we create an evm.proteins.fa file with all the predicted proteins as output of EvidenceModeler.
+There are several things going on here. The first is running `augustus_GTF_to_EVM_GFF3.pl` on the GALBA output to create a GFF-file that EvidenceModeler accepts. Then we concatenate the resulting file together with the two files from [miniprot](02_miniprot.md). `weights.evm.txt` is created, and contains two lines that determine how much weight EvidenceModeler should put on the _ab initio_ gene predictions versus the protein alignments. You should try to get an impression of what the different options are meant for here. In the end we create an `evm.proteins.fa` file with all the predicted proteins as output of EvidenceModeler.
 
 Create a subfolder called `evm`, enter it and create a `run.sh` with this content:
 ```
@@ -56,11 +58,12 @@ gzUmbRama1.softmasked.fa \
 ```
 
 Submit the job.
+This ran for 40 minutes when testing.
 
 |[Previous](https://github.com/ebp-nor/genome_annotation_comparative_genomics_part1/blob/main/03_galba.md)|[Next](https://github.com/ebp-nor/genome_annotation_comparative_genomics_part1/blob/main/05_busco.md)|
 |---|---|
 
 
-This ran for 40 minutes when testing.
+
 
 
