@@ -76,6 +76,10 @@ awesome_fun_guy \
 
 Congratulations! You have now both structurally and functionally annotated a genome.
 
+How many genes did you get? How many complete BUSCO genes?
+
+The file `/projects/ec146/data/proteomes/gzUmbIsab1.proteins.fa` the the result of another annotation effort. How many genes are found in that file? How many complete BUSCO genes? What might the difference be due?
+
 |[Previous](https://github.com/ebp-nor/genome_annotation_comparative_genomics_part1/blob/main/06_filtering.md)|[Next](https://github.com/ebp-nor/genome_annotation_comparative_genomics_part1/blob/main/orthofinder.md)|
 |---|---|
 
