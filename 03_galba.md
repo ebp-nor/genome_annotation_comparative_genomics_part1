@@ -1,11 +1,11 @@
 ## GALBA
-[Miniprot](02_miniprot) will only output alignments based on the proteins it aligns. It cannot provide any gene models not supported by the input proteins. To cover our bases (nucleotides) we also want to run an _ab initio_ gene predictor. As you might have gotten the impression from the miniprot paper if you read that, not that much has happened in the genome annotation world the last 10 years or so. There have been (continued) development of some _ab initio_ gene predictors, mainly [AUGUSTUS](https://github.com/Gaius-Augustus/Augustus) and [GeneMark](http://exon.gatech.edu/GeneMark/), but no new programs as far as we know. GeneMark has a lisence which might make it harder to use in many cases, but AUGUSTUS is free and open. 
+[Miniprot](02_miniprot) will only output alignments based on the proteins it aligns. It cannot provide any gene models not supported by the input proteins. To cover our bases (nucleotides) we also want to run an _ab initio_ gene predictor. Not much has happened in the genome annotation world the last 10 years or so, as you might have gathered from the Miniprot paper if you have read it. There have been (continued) development of some _ab initio_ gene predictors, mainly [AUGUSTUS](https://github.com/Gaius-Augustus/Augustus) and [GeneMark](http://exon.gatech.edu/GeneMark/), but aparts form those no new programs managed to break through as far as we know. GeneMark has quite a restrictive license for usage, making it a bit harder to use in many cases (althoug it was recently announced they would change the license). AUGUSTUS on the other hand is free and open, making it very popular tool for genome annotation. 
 
-The developers of AUGUSTUS have through the years developed different programs that wrap and train AUGUSTUS using different datasets (BRAKER1 with RNA-seq data, BRAKER2 with protein data, both available from https://github.com/Gaius-Augustus/BRAKER). The latest wrapper is called [GALBA](https://github.com/Gaius-Augustus/GALBA), and aligns proteins using miniprot and is then trained on those aligned proteins. 
+The developers of AUGUSTUS have through the years developed different programs that allow one to easily train AUGUSTUS using different datasets (BRAKER1 with RNA-seq data, BRAKER2 with protein data, and recently BRAKER3 incorporating both, available from https://github.com/Gaius-Augustus/BRAKER), and use that to predict genes. Another recent AUGUSTUS wrapper that was developped is called [GALBA](https://github.com/Gaius-Augustus/GALBA). GALBA uses Miniprot to align a set of proteins your genome, and uses that to train AUGUSTUS to predict genes _de novo_.
 
-Here, we will use GALBA on the proteins from a related fungus to generate a set up _ab initio_ predicted genes.
+Here, we will run GALBA uding the proteins from a related fungus to generate a set up _ab initio_ predicted genes.
 
-You can run GALBA with a script similar to this: 
+Our pre-prepared jobscript looks like this: 
 ```
 #!/bin/bash
 #SBATCH --job-name=galba
@@ -29,9 +29,9 @@ singularity exec -B $PWD:/data /projects/ec146/opt/galba/galba.sif galba.pl --sp
 
 agat_sp_extract_sequences.pl --gff galba.gtf -f $1  -t cds -p -o galba.proteins.fa
 ```
-Here we use a [Singularity container](https://docs.sylabs.io/guides/3.5/user-guide/introduction.html), because sometimes it can be a hassle to set up everything properly even with Conda. 
+Here we use a [Singularity container](https://docs.sylabs.io/guides/3.5/user-guide/introduction.html), because sometimes it can be a hassle to set up everything to run Galba (and other AUGUSTUS-related software) properly, even with Conda. 
 
-You can start this with this `run.sh` script:
+Remeber to create a new folder for GALBA in your working direcotry, and then you can use this jobscript for running galba by creating the following `run.sh` script:
 ```
 cp -rf /projects/ec146/data/GCF_025201355.1_Halrad1_protein.faa  .
 cp -rf ../softmask/gzUmbRama1.softmasked.fa .
@@ -39,7 +39,7 @@ cp -rf ../softmask/gzUmbRama1.softmasked.fa .
 sbatch /projects/ec146/scripts/annotation/run_galba.sh gzUmbRama1.softmasked.fa gzUmbRama1 GCF_025201355.1_Halrad1_protein.faa
 ```
 
-Why do we copy both the genome assembly and the protein sequences to the current folder?
+Why do we need to copy both the genome assembly and the protein sequences to the current folder?
 
 When we ran this, it took about 50 minutes. This job can be started at the same time as the miniprot jobs, but have to be run after the softmasking.
 
