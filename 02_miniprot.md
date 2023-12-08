@@ -11,8 +11,8 @@ This is how the first one looks like:
 #SBATCH --job-name=miniprot
 #SBATCH --account=ec146
 #SBATCH --time=1:0:0
-#SBATCH --mem-per-cpu=1G
-#SBATCH --ntasks-per-node=5
+#SBATCH --mem-per-cpu=2G
+#SBATCH --ntasks-per-node=10
 
 eval "$(/fp/projects01/ec146/miniconda3/bin/conda shell.bash hook)"
 
