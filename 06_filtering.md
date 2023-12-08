@@ -4,7 +4,7 @@ EvidenceModeler creates a set of genes that is the consensus of the input sets o
 
 All this can be done with this script:
 
-´´´
+```
 #!/bin/bash
 #SBATCH --job-name=filter
 #SBATCH --account=ec146
@@ -29,8 +29,7 @@ rm -rf filtered_genes*
 agat_sp_filter_by_ORF_size.pl --gff removed_repeats.gff -s $MIN_AA_SIZE -o filtered_genes.gff
 
 agat_sp_extract_sequences.pl --gff filtered_genes_sup${MIN_AA_SIZE}.gff -f $3 -t cds -p -o filtered.proteins.fa 1> agat_proteins_"`date +\%y\%m\%d_\%H\%M\%S`".out 2> agat_proteins_"`date +\%y\%m\%d_\%H\%M\%S`".err
-´´´
-
+```
 You can run this script by this `run.sh` script:
 ```
 sbatch /projects/ec146/scripts/annotation/run_filter.sh \
