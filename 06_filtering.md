@@ -38,6 +38,8 @@ sbatch /projects/ec146/scripts/annotation/run_filter.sh \
 ../softmask/gzUmbRama1.softmasked.fa
 ```
 
+(There are backups for all input files at `/projects/ec146/data/` if some of them were not generated for some reason.)
+
 This should only take a minute or so.
 
 |[Previous](https://github.com/ebp-nor/genome_annotation_comparative_genomics_part1/blob/main/05_busco.md)|[Next](https://github.com/ebp-nor/genome_annotation_comparative_genomics_part1/blob/main/07_functional.md)|
