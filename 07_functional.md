@@ -69,7 +69,7 @@ You can run this as
 ```
 sbatch /projects/ec146/scripts/annotation/run_functional.sh \
 ../filter/filtered_genes_sup50.gff  \
-../filter/filtered.proteins.fa \
+uniprot/diamond.blastp.out \
 awesome_fun_guy \
 ../softmask/gzUmbRama1.softmasked.fa
 ```
