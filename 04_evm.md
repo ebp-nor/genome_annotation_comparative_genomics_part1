@@ -57,6 +57,8 @@ gzUmbRama1.softmasked.fa \
 ../miniprot/mp_model_evm.gff
 ```
 
+(There are backups for all input files at `/projects/ec146/data/` if some of them were not generated for some reason.)
+
 Submit the job.
 This ran for 40 minutes when testing.
 
