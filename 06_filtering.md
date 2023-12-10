@@ -33,8 +33,8 @@ agat_sp_extract_sequences.pl --gff filtered_genes_sup${MIN_AA_SIZE}.gff -f $3 -t
 You can run this script by this `run.sh` script:
 ```
 sbatch /projects/ec146/scripts/annotation/run_filter.sh \
-../evm_gene/evm.proteins.fa \
-../evm_gene/evm.gff3 \
+../evm/evm.proteins.fa \
+../evm/evm.gff3 \
 ../softmask/gzUmbRama1.softmasked.fa
 ```
 
