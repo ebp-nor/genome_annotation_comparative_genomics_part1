@@ -28,7 +28,7 @@ busco -c 10 -i ${origdir}/${1} -l /projects/ec146/opt/busco/lineages/${2}_odb10 
 
 As you see, there are two parameters here (`$1` and `$2`), the first is the set of proteins you want to compare against the database, and the second is the BUSCO lineage (fungi or mucoromycota in this case). 
 
-We leave writing a `run_busco.sh` file to you as an exercise. You should run both lineages on at least two of the predicted protein sets. The path to the BUSCO script is `/projects/ec146/scripts/annotation/run_busco_lineage.sh` . 
+We leave writing a `run_busco.sh` file to you as an exercise. You should run both lineages on at least two of the predicted protein sets. The path to the BUSCO script is `/projects/ec146/scripts/annotation/run_busco_lineage.sh`. 
 
 |[Previous](https://github.com/ebp-nor/genome_annotation_comparative_genomics_part1/blob/main/04_evm.md)|[Next](https://github.com/ebp-nor/genome_annotation_comparative_genomics_part1/blob/main/06_filtering.md)|
 |---|---|
