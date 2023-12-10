@@ -23,7 +23,7 @@ miniprot -ut5 --gff $1 /projects/ec146/data/funannotate_db/uniprot_sprot.fasta >
 agat_sp_extract_sequences.pl --gff mp_uniprot_sprot.gff -f $1 -t cds -p -o uniprot_sprot.proteins.fa \
 1> agat_proteins_"`date +\%y\%m\%d_\%H\%M\%S`".out 2> agat_proteins_"`date +\%y\%m\%d_\%H\%M\%S`".err
 
-/projects/ec146/scripts/annotation/miniprot_GFF_2_EVM_GFF3.py mp_uniprot_sprot_proteins.gff > mp_uniprot_sprot_evm.gff
+/projects/ec146/scripts/annotation/miniprot_GFF_2_EVM_GFF3.py mp_uniprot_sprot.gff > mp_uniprot_sprot_evm.gff
 ```
 Again, you have to create a `run.sh` script containing the following lines:
 ```
