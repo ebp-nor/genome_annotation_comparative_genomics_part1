@@ -74,6 +74,8 @@ awesome_fun_guy \
 ../softmask/gzUmbRama1.softmasked.fa
 ```
 
+(There are backups for all input files at `/projects/ec146/data/` if some of them were not generated for some reason.)
+
 Congratulations! You have now both structurally and functionally annotated a genome.
 
 How many genes did you get? How many complete BUSCO genes?
