@@ -39,6 +39,8 @@ cp -rf ../softmask/gzUmbRama1.softmasked.fa .
 sbatch /projects/ec146/scripts/annotation/run_galba.sh gzUmbRama1.softmasked.fa gzUmbRama1 GCF_025201355.1_Halrad1_protein.faa
 ```
 
+(If for some reason `gzUmbRama1.softmasked.fa` was not created, there is a backup located at `/projects/ec146/data/` you can use.)
+
 Why do we need to copy both the genome assembly and the protein sequences to the current folder?
 
 When we ran this, it took about 50 minutes. This job can be started at the same time as the miniprot jobs, but have to be run after the softmasking.
