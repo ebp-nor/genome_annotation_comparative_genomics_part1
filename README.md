@@ -16,7 +16,7 @@ This workshop is sponsored by EBP-Nor in addition to the sponsors for the Oslo B
     * [Repeat mask](01_repeatmasking.md)
     * [Mapping protein sets](02_miniprot.md)
     * [_Ab initio_ gene prediction](03_galba.md)
-* 09:30-11:55 [Introduction to genome annotation]()
+* 09:30-11:55 [Introduction to genome annotation](slides_morning.pdf)
   * Work through the rest of the programs
     * [EvidenceModeler](04_evm.md)
     * [BUSCO](05_busco.md)
@@ -26,7 +26,7 @@ This workshop is sponsored by EBP-Nor in addition to the sponsors for the Oslo B
 ### 12:00-13:00 Lunch
 
 ### 13:00-14:00 
-* Introduction to comparative genomics
+* [Introduction to comparative genomics](slides_afternoon.pdf)
 * [Setting up OrthoFinder](orthofinder.md)
 
 ### 14:00-14:15 Break
