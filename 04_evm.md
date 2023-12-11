@@ -51,7 +51,7 @@ There are several things going on here. The first is running `augustus_GTF_to_EV
 Create a subfolder called `evm`, enter it and create a `run.sh` with this content:
 ```
 sbatch /projects/ec146/scripts/annotation/run_evm.sh \
-gzUmbRama1.softmasked.fa \
+../softmask/gzUmbRama1.softmasked.fa \
 ../galba/galba.gtf \
 ../miniprot/mp_uniprot_sprot_evm.gff \
 ../miniprot/mp_model_evm.gff
