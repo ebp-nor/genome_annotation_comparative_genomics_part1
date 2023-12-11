@@ -76,8 +76,6 @@ muscle -align INPUT -output OUTPUT
 
 Luckily, this is easy to change. We just modified this file to the correct command: `/fp/projects01/ec146/miniconda3/envs/orthofinder/bin/scripts_of/config.json`. If you run into similar issues when doing this yourself, be aware that it might be easily addressed.
 
-Discuss different options... 
-
 ## Example script
 ```
 #!/bin/bash
