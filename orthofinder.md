@@ -65,7 +65,7 @@ Then you can submit a job like this:
 sbatch /projects/ec146/scripts/orthofinder/run_orthofinder_cds.sh
 ```
 
-If you look at the SLURM scripts, you'll see that we have specified running `muscle` and `iqtree` (`-M msa -A muscle -T iqtree`). By default, OrthoFinder calls `musle` like this:
+A previous version of the SLURM scripts had specified running `muscle` and `iqtree` (`-M msa -A muscle -T iqtree`). By default, OrthoFinder calls `musle` like this:
 ```
 muscle -in INPUT -out OUTPUT
 ```
@@ -74,7 +74,8 @@ However, the version of `muscle` we have installed (5.1) requires
 muscle -align INPUT -output OUTPUT
 ```
 
-Luckily, this is easy to change. We just modified this file to the correct command: `/fp/projects01/ec146/miniconda3/envs/orthofinder/bin/scripts_of/config.json`. If you run into similar issues when doing this yourself, be aware that it might be easily addressed.
+Luckily, this is easy to change. We just modified this file to the correct command: `/fp/projects01/ec146/miniconda3/envs/orthofinder/bin/scripts_of/config.json`. If you run into similar issues when doing this yourself, be aware that it might be easily addressed. Running with the the `muscle` and `iqtree` options took a lot of time, so we did not enable them. However, some of you can try it, but please do not create a lot of jobs. Each OrthoFinder job might create tens of thousands of files, and overload the filesystem we are working on.
+
 
 ## Example script
 ```
