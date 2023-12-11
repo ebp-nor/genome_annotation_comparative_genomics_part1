@@ -87,14 +87,14 @@ Discuss different options...
 #SBATCH --time=4:0:0 ## increase if the job doesn't finish
 #SBATCH --mem-per-cpu=4500M
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=15 ## increase if the job doesn't finish
+#SBATCH --ntasks-per-node=5 ## increase if the job doesn't finish
 
 eval "$(/fp/projects01/ec146/miniconda3/bin/conda shell.bash hook)"
 
 conda activate orthofinder
 
 #increase -a and -t if the job needs more time
-orthofinder -a 15 \
--t 15 \
+orthofinder -a 5 \
+-t 5 \
 -f proteins > orthofinder.out 2> orthofinder.err
 ```
