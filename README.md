@@ -2,6 +2,8 @@
 
 This repository contains the course materials for the workshop Genome annotation and comparative genomics, part 1 created for the Oslo Bioinformatics Workshop Week 2023 and taught by people in the EBP-Nor project. The course is run on infrastructure provided by the University of Oslo. 
 
+Part 2 of the workshop builds further on this and can be found [here](https://github.com/ebp-nor/genome_annotation_comparative_genomics_part2). 
+
 This workshop is sponsored by EBP-Nor in addition to the sponsors for the Oslo Bioinformatics Workshop Week 2023 itself. 
 
 <img src="EBP_Nor-orig.png" alt="EBP_Nor logo" width="300"/>
